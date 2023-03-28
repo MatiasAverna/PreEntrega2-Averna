@@ -2,6 +2,11 @@ import logo from './logo.svg';
 import './App.css';
 import Navbar from "./components/Navbar";
 import ItemListContainer from './components/ItemListContainer';
+import CardWidget from './components/CardWidget';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
+
+
 
 
 function AppCurso() {
@@ -9,6 +14,19 @@ function AppCurso() {
     <Navbar />
 
   )
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Navbar />
+      <Switch>
+        <Route exact path="/" component={ItemListContainer} />
+        <Route exact path="/category/:id" component={ItemListContainer} />
+        <Route exact path="/item/:id" component={CardWidget} />
+      </Switch>
+    </BrowserRouter>
+  );
 }
 
 function App() {
